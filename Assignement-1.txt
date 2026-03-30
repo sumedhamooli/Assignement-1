@@ -1,0 +1,166 @@
+1.Problem Statement: A bank wants to calculate simple interest for customers. Write a C program that takes principal, rate, and time as input and calculates the interest using a function.
+
+solution:
+#include <stdio.h>
+
+float si(float principal, float rate, float time) // Function to calculate simple interest
+
+{
+    float si;
+    si = (principal * rate * time) / 100;
+    return si;
+}
+
+int main() 
+{
+    float principal, rate, time, interest;
+
+   
+    printf("Enter Principal amount: ");  //input
+    scanf("%f", &principal);
+
+    printf("Enter Rate of interest: ");
+    scanf("%f", &rate);
+
+    printf("Enter Time (in years): ");
+    scanf("%f", &time);
+
+        interest = si(principal, rate, time);
+
+        printf("Simple Interest = %.2f\n", interest);
+
+    return 0;
+}
+
+2. Problem Statement: An ATM machine needs to check whether the entered PIN is correct. Write a C program that takes a PIN from the user and compares it with a predefined PIN using a function.
+
+solution:
+#include <stdio.h>
+
+int checkPIN(int enteredPIN) // Function to check PIN
+
+{
+    int new_PIN = 1234;  // predefined PIN
+    
+    if (enteredPIN == new_PIN)
+        return 1;
+    else
+        return 0;
+}
+
+int main() 
+{
+    int pin;
+
+    printf("Enter your PIN: ");
+    scanf("%d", &pin);
+
+    if (checkPIN(pin)) 
+        printf("Access Granted\n");
+    else 
+        printf("Access Denied\n");
+
+    return 0;
+}
+
+3. Problem Statement: A system needs to generate Fibonacci numbers for a simulation. Write a C program to generate Fibonacci series up to n terms using recursion.
+
+solution:
+#include <stdio.h>
+
+int fibonacci(int n) // Recursive function to find nth Fibonacci number
+
+{
+    if (n == 0)
+        return 0;
+    else if (n == 1)
+        return 1;
+    else
+        return fibonacci(n - 1) + fibonacci(n - 2);
+}
+
+int main()
+{
+    int n, i;
+
+    printf("Enter number of terms: ");
+    scanf("%d", &n);
+
+    printf("Fibonacci Series: ");
+
+    for (i = 0; i < n; i++)
+    {
+        printf("%d ", fibonacci(i));
+    }
+
+    return 0;
+}
+
+4. Problem Statement: A student management system needs to calculate total and average marks of 5 subjects. Write a C program using functions to compute total and percentage.
+
+solution:
+#include <stdio.h>
+
+// Function to calculate total marks
+int calculateTotal(int m1, int m2, int m3, int m4, int m5)
+{
+    return m1 + m2 + m3 + m4 + m5;
+}
+
+// Function to calculate percentage
+float calculatePercentage(int total)
+{
+    return total / 5.0;
+}
+
+int main()
+{
+    int m1, m2, m3, m4, m5, total;
+    float percentage;
+
+    // Input marks
+    printf("Enter marks of 5 subjects:\n");
+    scanf("%d %d %d %d %d", &m1, &m2, &m3, &m4, &m5);
+
+    // Function calls
+    total = calculateTotal(m1, m2, m3, m4, m5);
+    percentage = calculatePercentage(total);
+
+    // Output
+    printf("Total Marks = %d\n", total);
+    printf("Percentage = %.2f%%\n", percentage);
+
+    return 0;
+}
+
+5.  Palindrome Employee ID
+Problem Statement: A company wants to check whether an employee ID number is a palindrome. Write a C program that takes an employee ID as input and verifies whether it is a palindrome or not.
+
+solution:
+#include <stdio.h>
+
+int main()
+{
+    int id, original, reversed = 0, remainder;
+
+    printf("Enter Employee ID: ");
+    scanf("%d", &id);
+
+    original = id;
+
+    // Reverse the number
+    while (id != 0)
+    {
+        remainder = id % 10;
+        reversed = reversed * 10 + remainder;
+        id = id / 10;
+    }
+
+    // Check palindrome
+    if (original == reversed)
+        printf("Employee ID is a Palindrome\n");
+    else
+        printf("Employee ID is NOT a Palindrome\n");
+
+    return 0;
+}
